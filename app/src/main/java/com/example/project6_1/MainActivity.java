@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 rdoDate.setVisibility(View.VISIBLE);
                 rdoTime.setVisibility(View.VISIBLE);
             }
-        };
+        });
 
         btnEnd.setOnClickListener(new View.OnClickListener(){
             @Override
