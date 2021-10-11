@@ -79,13 +79,15 @@
             android:id="@+id/tvYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0000년"/>
+            android:text="0000년"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/tvAnother"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" 00월 00일 00시 00분 예약됨"/>
+            android:text=" 00월 00일 00시 00분 예약됨"
+            android:textSize="15dp"/>
     </LinearLayout>
 
 </LinearLayout>

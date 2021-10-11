@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
         tvYear = (TextView) findViewById(R.id.tvYear);
         tvAnother = (TextView) findViewById(R.id.tvAnother);
 
-//        datePicker.setVisibility(View.INVISIBLE);
-
         chronometer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
