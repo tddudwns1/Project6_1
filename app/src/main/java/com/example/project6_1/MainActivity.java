@@ -19,25 +19,24 @@ import android.widget.TimePicker;
 
 public class MainActivity extends AppCompatActivity {
     Chronometer chronometer;
-    Button btnEnd;
     RadioButton rdoDate, rdoTime;
     DatePicker datePicker;
     TimePicker timePicker;
-    TextView tvResult;
+    TextView tvYear, tvAnother;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         chronometer = (Chronometer) findViewById(R.id.chronometer);
-        btnEnd = (Button)findViewById(R.id.btnEnd);
-        rdoDate = (RadioButton)findViewById(R.id.rdoDate);
-        rdoTime = (RadioButton)findViewById(R.id.rdoTime);
+        rdoDate = (RadioButton) findViewById(R.id.rdoDate);
+        rdoTime = (RadioButton) findViewById(R.id.rdoTime);
         datePicker = (DatePicker) findViewById(R.id.datePicker);
-        timePicker = (TimePicker)findViewById(R.id.timePicker);
-        tvResult = (TextView)findViewById(R.id.tvResult);
+        timePicker = (TimePicker) findViewById(R.id.timePicker);
+        tvYear = (TextView) findViewById(R.id.tvYear);
+        tvAnother = (TextView) findViewById(R.id.tvAnother);
 
-        datePicker.setVisibility(View.INVISIBLE);
+//        datePicker.setVisibility(View.INVISIBLE);
 
         chronometer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnEnd.setOnClickListener(new View.OnClickListener(){
+        tvYear.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View view) {
+            public boolean onLongClick(View view) {
                 chronometer.stop();
                 chronometer.setTextColor(Color.BLUE);
                 rdoDate.setVisibility(View.INVISIBLE);
@@ -60,11 +59,13 @@ public class MainActivity extends AppCompatActivity {
                 datePicker.setVisibility(View.INVISIBLE);
                 timePicker.setVisibility(View.INVISIBLE);
                 int year = datePicker.getYear();
-                int month = datePicker.getMonth();
+                int month = datePicker.getMonth() + 1;
                 int day = datePicker.getDayOfMonth();
-                int hour=timePicker.getCurrentHour();
-                int min=timePicker.getCurrentMinute();
-                tvResult.setText(year + "년 " + month + "월 " + day + "일 " + hour + "시 " + min + "분 예약됨");
+                int hour = timePicker.getCurrentHour();
+                int min = timePicker.getCurrentMinute();
+                tvYear.setText(year + "년 ");
+                tvAnother.setText(month + "월 " + day + "일 " + hour + "시 " + min + "분 예약됨");
+                return false;
             }
         });
 
